@@ -233,17 +233,24 @@ static NSMutableSet <Class> *instanceOfClassesSet = nil;
             UILabel *label = subview;
             if ([label.text isEqualToString:self.title] || [label.text isEqualToString:self.message]) {
                 
-                UILabel *newLabel = [self labelFromLabelAttributes:label];
+                UILabel *newLabel;
+                if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max) {
+                    newLabel = label;
+                    label.hidden = NO;
+                }
+                else {
+                    newLabel = [self labelFromLabelAttributes:label];
+                    [label.superview addSubview:newLabel];
+                    [self swapView:label withView:newLabel];
+                    label.hidden = YES;
+                }
                 
-                [label.superview addSubview:newLabel];
-                
-                [self swapView:label withView:newLabel];
-                label.hidden = YES;
-
                 if ([label.text isEqualToString:self.title]) {
                     newLabel.font = self.currentStyle.titleLabelFont ? self.currentStyle.titleLabelFont : newLabel.font;
+                    newLabel.textColor = self.currentStyle.titleLabelColor ? self.currentStyle.titleLabelColor : newLabel.textColor;
                 } else {
                     newLabel.font = self.currentStyle.messageLabelFont ? self.currentStyle.messageLabelFont : newLabel.font;
+                    newLabel.textColor = self.currentStyle.messageLabelColor ? self.currentStyle.messageLabelColor : newLabel.textColor;
                 }
                 
                 CGRect frame = newLabel.frame;

@@ -44,6 +44,8 @@
         alert.currentStyle.shouldApplyBlur = NO;
         alert.currentStyle.backgroundColor = [[UIColor colorWithHue:0.57 saturation:0.77 brightness:0.86 alpha:1]colorWithAlphaComponent:1.0];
         alert.currentStyle.destructiveButtonColor = [UIColor colorWithHue:0.13 saturation:0.94 brightness:0.95 alpha:1];
+        alert.currentStyle.messageLabelColor = [UIColor whiteColor];
+        alert.currentStyle.titleLabelColor = [UIColor redColor];
 
     } else {
         alert.currentStyle.shouldApplyBlur = YES;

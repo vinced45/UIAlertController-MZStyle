@@ -14,6 +14,8 @@ typedef void(^MZAlertViewControllerStyleButtonConfigurationHandler)(UIAlertActio
 typedef void(^MZAlertViewControllerStyleCancelButtonConfigurationHandler)(UIAlertAction *action, UILabel *label, UIView *backgroundView);
 
 @interface MZAlertControllerStyle : NSObject <NSCopying>
+@property (nonatomic, strong) UIColor *titleLabelColor;
+@property (nonatomic, strong) UIColor *messageLabelColor;
 @property (nonatomic, strong) UIColor *cancelButtonColor;
 @property (nonatomic, strong) UIColor *defaultButtonColor;
 @property (nonatomic, strong) UIColor *destructiveButtonColor;

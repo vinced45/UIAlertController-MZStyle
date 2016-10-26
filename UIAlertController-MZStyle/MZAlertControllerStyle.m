@@ -28,6 +28,20 @@
     return _actionSheetCancelButtonBackgroundColor;
 }
 
+- (UIColor *)titleLabelColor {
+    if (!_titleLabelColor) {
+        _titleLabelColor = [UIColor whiteColor];
+    }
+    return _titleLabelColor;
+}
+
+- (UIColor *)messageLabelColor {
+    if (!_messageLabelColor) {
+        _messageLabelColor = [UIColor whiteColor];
+    }
+    return _messageLabelColor;
+}
+
 - (UIColor *)defaultButtonColor {
     if (!_defaultButtonColor) {
         _defaultButtonColor = [UIColor whiteColor];
@@ -56,6 +70,8 @@
     copy.destructiveButtonColor = [_destructiveButtonColor copy];
     copy.titleLabelFont = [_titleLabelFont copy];
     copy.messageLabelFont = [_messageLabelFont copy];
+    copy.messageLabelColor = [_messageLabelColor copy];
+    copy.titleLabelColor = [_titleLabelColor copy];
     copy.buttonLabelFont = [_buttonLabelFont copy];
     copy.cancelButtonColor = [_cancelButtonColor copy];
     copy.actionSheetCancelButtonBackgroundColor = [_actionSheetCancelButtonBackgroundColor copy];
